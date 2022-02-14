@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_softtns_task/controllers/MainController.dart';
-import 'package:flutter_softtns_task/nested_navigator.dart';
-import 'package:flutter_softtns_task/screens/alarm_screen.dart';
-import 'package:flutter_softtns_task/screens/downloads_screen.dart';
-import 'package:flutter_softtns_task/screens/screen_one.dart';
-import 'package:flutter_softtns_task/screens/screen_three.dart';
-import 'package:flutter_softtns_task/screens/screen_two.dart';
-import 'package:flutter_softtns_task/screens/settings_screen.dart';
+import 'package:flutter_softtns_task/controllers/main_controller.dart';
+import 'package:flutter_softtns_task/widgets/nested_navigator.dart';
+import 'package:flutter_softtns_task/config/routes.dart';
+import 'package:flutter_softtns_task/screens/alarm/alarm_screen.dart';
+import 'package:flutter_softtns_task/screens/downloads/downloads_screen.dart';
+import 'package:flutter_softtns_task/screens/home/home_screen.dart';
+import 'package:flutter_softtns_task/screens/home/home_nested2_screen.dart';
+import 'package:flutter_softtns_task/screens/home/home_nested1_screen.dart';
+import 'package:flutter_softtns_task/screens/settings/settings_nested1_screen.dart';
+import 'package:flutter_softtns_task/screens/settings/settings_screen.dart';
 import 'package:flutter_softtns_task/widgets/main_appbar.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +21,9 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  final GlobalKey<NavigatorState> navigationKey = GlobalKey<NavigatorState>();
+  final navigationKey = LabeledGlobalKey<NavigatorState>('one');
+  final settingNavigationKey = LabeledGlobalKey<NavigatorState>('two');
+
   @override
   void initState() {
     // TODO: implement initState
@@ -33,23 +37,10 @@ class _MainScreenState extends State<MainScreen> {
       appBar: MainAppBar(
         title: main.title,
       ),
-      body: IndexedStack(
-        index: main.selectedIndex,
-        children: [
-          NestedNavigator(
-            routes: {
-              '/': (ctx) => const ScreenOne(),
-              '/one': (ctx) => const ScreenTwo(),
-              '/two': (ctx) => const ScreenThree(),
-            },
-            navigationKey: navigationKey,
-            initialRoute: '/',
-          ),
-          SettingsScreen(),
-          DownloadsScreen(),
-          AlarmScreen(),
-        ],
-      ),
+      body: main.getWidgetList(
+        homeKey: navigationKey,
+        settingsKey: settingNavigationKey,
+      )[main.selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: main.selectedIndex,
         selectedFontSize: 11,

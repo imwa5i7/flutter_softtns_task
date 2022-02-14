@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_softtns_task/controllers/MainController.dart';
+import 'package:flutter_softtns_task/controllers/main_controller.dart';
 import 'package:provider/provider.dart';
 
-class ScreenThree extends StatelessWidget {
-  const ScreenThree({Key? key}) : super(key: key);
+class DownloadsNested2Screen extends StatelessWidget {
+  const DownloadsNested2Screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final main = context.watch<MainController>();
     return Container(
-      color: Colors.pink,
+      color: Colors.red,
       alignment: Alignment.center,
       child: MaterialButton(
-        onPressed: () => main.popNested2(context),
+        onPressed: () {},
         child: const Text("Go Back"),
-        color: Colors.blueAccent,
+        color: Colors.greenAccent,
         textColor: Colors.white,
       ),
     );

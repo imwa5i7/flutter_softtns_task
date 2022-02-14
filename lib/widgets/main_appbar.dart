@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_softtns_task/controllers/MainController.dart';
+import 'package:flutter_softtns_task/controllers/main_controller.dart';
 import 'package:provider/provider.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {

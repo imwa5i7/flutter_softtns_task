@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_softtns_task/controllers/MainController.dart';
+import 'package:flutter_softtns_task/controllers/main_controller.dart';
 import 'package:provider/provider.dart';
 
-class ScreenOne extends StatelessWidget {
-  const ScreenOne({Key? key}) : super(key: key);
+class AlarmsNested3Screen extends StatelessWidget {
+  const AlarmsNested3Screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +12,8 @@ class ScreenOne extends StatelessWidget {
       color: Colors.red,
       alignment: Alignment.center,
       child: MaterialButton(
-        onPressed: () => main.changeTitle(context),
-        child: const Text("Go To Next"),
+        onPressed: () {},
+        child: const Text("Go Back"),
         color: Colors.greenAccent,
         textColor: Colors.white,
       ),

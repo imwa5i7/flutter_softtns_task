@@ -1,27 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_softtns_task/controllers/MainController.dart';
+import 'package:flutter_softtns_task/config/routes.dart';
+import 'package:flutter_softtns_task/controllers/main_controller.dart';
 import 'package:provider/provider.dart';
 
-class ScreenTwo extends StatelessWidget {
-  const ScreenTwo({Key? key}) : super(key: key);
+class HomeNested1Screen extends StatelessWidget {
+  const HomeNested1Screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final main = context.watch<MainController>();
     return Container(
-      color: Colors.orange,
       alignment: Alignment.center,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const Text("Home Screen Nested One"),
           MaterialButton(
-            onPressed: () => main.changeTitle2(context),
+            onPressed: () {
+              Navigator.pushNamed(context, Routes.homeTwo);
+            },
             child: const Text("Go Next"),
             color: Colors.blueAccent,
             textColor: Colors.white,
           ),
           MaterialButton(
-            onPressed: () => main.popNested(context),
+            onPressed: () {
+              Navigator.pop(context);
+            },
             child: const Text("Go Back"),
             color: Colors.blueAccent,
             textColor: Colors.white,
