@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_softtns_task/controllers/MainController.dart';
 import 'package:flutter_softtns_task/screens/main_screen.dart';
-import 'package:flutter_softtns_task/screens/nested_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
